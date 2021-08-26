@@ -7,6 +7,7 @@ public class TicTacToeMain {
 		System.out.println("Welcome to Tic Tac Toe Game");
 		
 		TicTacToeGame game = new TicTacToeGame();
+		game.createBoard();
 		
 	}
 
