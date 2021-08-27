@@ -1,5 +1,7 @@
 package com.yml.tictactoe;
 
+import java.util.Scanner;
+
 public class TicTacToeGame {
 	
 	private char board[] = new char[10];
@@ -17,6 +19,8 @@ public class TicTacToeGame {
 	}
 	
 	public void choice() {
+		Scanner in = new Scanner(System.in);
+
 		System.out.println("Choose the letter(X/O) ");
 		char ch = in.next().charAt(0);
 		
@@ -26,7 +30,15 @@ public class TicTacToeGame {
 		}else {
 			pChoice = 'O';
 			cChoice = 'X';
-		}		
+		}
+		
+		in.close();
+	}
+
+	public void showBoard() {
+		System.out.println(board[1]+" | "+board[2]+" | "+board[3]+" | ");
+		System.out.println(board[4]+" | "+board[5]+" | "+board[6]+" | ");
+		System.out.println(board[7]+" | "+board[8]+" | "+board[9]+" | ");
 	}
 	
 }
