@@ -5,11 +5,14 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
+	final int COMPUTER = 1;
+	final int PLAYER = 2;
 	
 	private char board[] = new char[10];
 	private char pChoice;
 	private char cChoice;
 	public int posLeft = 9;
+	public int currentPlayer;
 	
 	public TicTacToeGame() {
 		
@@ -54,6 +57,7 @@ public class TicTacToeGame {
 		
 		board[playerPos] = pChoice;
 		posLeft--;
+		switchPlayer();
 		return true;
 		
 	}
@@ -74,15 +78,51 @@ public class TicTacToeGame {
 			if(board[choice] == ' ') {
 				board[choice] = cChoice;
 				posLeft--;
+				switchPlayer();
 				break;
 			}
 		}
 		
 	}
 	
+	private void switchPlayer() {
+		if(currentPlayer == PLAYER) {
+			currentPlayer = COMPUTER;
+		}
+		else {
+			currentPlayer = PLAYER;
+		}
+	}
+	
 	private int generateChoice() {
 		Random rand = new Random();
 		return rand.nextInt(9)+1;
+	}
+	
+	public void toss(int playerTossChoice) {
+		final int HEAD = 1;
+		final int TAIL = 2;
+		
+		double prob = Math.random();
+		
+		int winningSide;
+		if(prob > 0.5) {
+			winningSide = HEAD;
+			print("Coin landed on HEAD");
+		}
+		else {
+			winningSide = TAIL;
+			print("Coin landed on TAIL");
+		}
+		
+		if(playerTossChoice == winningSide) {
+			print("player won the toss");;
+			currentPlayer = PLAYER;
+		}
+		else {
+			print("computer won the toss");
+			currentPlayer = COMPUTER;
+		}
 	}
 	
 }
