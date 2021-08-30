@@ -13,6 +13,8 @@ public class TicTacToeGame {
 	private char cChoice;
 	public int posLeft = 9;
 	public int currentPlayer;
+	public boolean winFlag;
+	public int winPlayer;
 	
 	public TicTacToeGame() {
 		
@@ -123,6 +125,84 @@ public class TicTacToeGame {
 			print("computer won the toss");
 			currentPlayer = COMPUTER;
 		}
+	}
+	
+	public void isAWin() {
+		//check horizontal
+		for(int i=1;i<10;i+=3) {
+			if(board[i] == ' ')
+				continue;
+			char pattern = board[i];
+			int j = i+1;
+			while(j<i+3) {
+				if(pattern != board[j] || board[j] == ' ')
+					break;
+				j++;
+			}
+			if(j == i+3) {
+				winFlag = true;
+				switchPlayer();
+				winPlayer = currentPlayer;
+				return;
+			}	
+		}
+		
+		//check vertical
+		
+		for(int i=1;i<=3;i++) {
+			if(board[i] == ' ')
+				continue;
+			char pattern = board[i];
+			int j = i+3;
+			while(j<=i+6) {
+				char myVal = board[j];
+				if(pattern != board[j] || board[j] == ' ')
+					break;
+				j+=3;
+			}
+			if(j == i+9) {
+				winFlag = true;
+				switchPlayer();
+				winPlayer = currentPlayer;
+				return;
+			}	
+		}
+		
+		//check primary diagonal
+		{
+			char pattern = board[1];
+			int i;
+			for(i=1;i<10;i+=4) {
+				if(board[i] != pattern || board[i] == ' ') {
+					break;
+				}
+			}
+			
+			if(i>9) {
+				winFlag = true;
+				switchPlayer();
+				winPlayer = currentPlayer;
+				return;
+			}
+		}
+		//check the secondary diagonal
+		
+		char pattern = board[3];
+		int i;
+		for(i=3;i<8;i+=2) {
+			if(board[i] != pattern || board[i] == ' ') {
+				break;
+			}
+		}
+		
+		if(i>7) {
+			winFlag = true;
+			switchPlayer();
+			winPlayer = currentPlayer;
+			return;
+		}
+		
+		
 	}
 	
 }
