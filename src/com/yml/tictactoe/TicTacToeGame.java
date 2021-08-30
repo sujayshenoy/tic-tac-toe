@@ -1,6 +1,7 @@
 package com.yml.tictactoe;
 
 import java.io.PrintWriter;
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -8,6 +9,7 @@ public class TicTacToeGame {
 	private char board[] = new char[10];
 	private char pChoice;
 	private char cChoice;
+	public int posLeft = 9;
 	
 	public TicTacToeGame() {
 		
@@ -43,23 +45,44 @@ public class TicTacToeGame {
 		System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
 	}
 	
-	public void playerPlay(int playerPos) {
+	public boolean playerPlay(int playerPos) {
 		
 		if(board[playerPos] != ' ') {
 			print("Position is already taken");
-			return;
+			return false;
 		}
 		
 		board[playerPos] = pChoice;
+		posLeft--;
+		return true;
 		
-		print("----------");
-		showBoard();
 	}
 	
 	public void print(String msg) {
 		PrintWriter out = new PrintWriter(System.out);
 		out.println(msg);
 		out.flush();
+	}
+	
+	public void computerPlay() {
+		print("");
+		print("Computer is playing");
+		
+		while(posLeft > 0) {
+			int choice = generateChoice();
+			
+			if(board[choice] == ' ') {
+				board[choice] = cChoice;
+				posLeft--;
+				break;
+			}
+		}
+		
+	}
+	
+	private int generateChoice() {
+		Random rand = new Random();
+		return rand.nextInt(9)+1;
 	}
 	
 }
