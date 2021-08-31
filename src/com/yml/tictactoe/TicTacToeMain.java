@@ -47,12 +47,14 @@ public class TicTacToeMain {
 				out.println("Game is a tie");
 			}
 			
-			out.println("Do you want to play again??Y/N");
+
+			out.println(" Do you want to play again??Y/N ");
 			in.nextLine();
 			char choice = in.nextLine().toUpperCase().charAt(0);
 			if(choice == 'N') {
 				break;
 			}
+			
 		}
 		
 	}
