@@ -136,6 +136,45 @@ public class TicTacToeGame {
 			{
 				return 9;
 			}
+			
+			//choices that block player win
+			//Rest of the if else conditions will block the player's move in case the player is about to win
+			else if((board[1]==' ')&&((board[2]==board[3]&&board[2]==pChoice)||(board[4]==board[7]&&board[4]==pChoice)||(board[5]==board[9]&&board[5]==pChoice)))
+			{
+				return 1;	
+			}
+			else if((board[2]==' ')&&((board[1]==board[3]&&board[3]==pChoice)||(board[5]==board[8]&&board[8]==pChoice)))
+			{
+				return 2;
+			}
+			else if((board[3]==' ')&&((board[1]==board[2]&&board[2]==pChoice)||(board[6]==board[9]&&board[9]==pChoice)||(board[5]==board[7]&&board[7]==pChoice)))
+			{
+				return 3;
+			}
+			else  if((board[4]==' ')&&((board[1]==board[7]&&board[1]==pChoice)||(board[5]==board[6]&&board[6]==pChoice)))
+			{
+				return 4;
+			}	
+			else if((board[5]==' ')&&((board[1]==board[9]&&board[1]==pChoice)||(board[7]==board[3]&&board[7]==pChoice)||(board[2]==board[8]&&board[8]==pChoice)||(board[4]==board[6]&&board[6]==pChoice)))
+			{
+				return 5;
+			}
+			else if((board[6]==' ')&&((board[9]==board[3]&&board[3]==pChoice)||(board[5]==board[4]&&board[4]==pChoice)))
+			{
+				return 6;
+			}
+			else 	if((board[7]==' ')&&((board[1]==board[4]&&board[4]==pChoice)||(board[6]==board[9]&&board[9]==pChoice)||(board[5]==board[7]&&board[7]==pChoice)))
+			{
+				return 7;
+			}
+			else if((board[8]==' ')&&((board[9]==board[7]&&board[7]==pChoice)||(board[2]==board[5]&&board[2]==pChoice)))
+			{
+				return 8;
+			}
+			else if((board[9]==' ')&&((board[1]==board[5]&&board[5]==pChoice)||(board[6]==board[3]&&board[3]==pChoice)||(board[8]==board[7]&&board[7]==pChoice)))
+			{	
+				return 9;
+			}
 		
 		return rand.nextInt(9)+1;
 	}
