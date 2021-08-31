@@ -11,7 +11,7 @@ public class TicTacToeMain {
 		
 		out.println("Welcome to Tic Tac Toe Game");
 		
-		while(true) {
+		while( true ) {
 			TicTacToeGame game = new TicTacToeGame();
 			game.createBoard();
 			game.choice();
