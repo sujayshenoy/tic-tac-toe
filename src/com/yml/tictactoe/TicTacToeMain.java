@@ -21,7 +21,7 @@ public class TicTacToeMain {
 			int playerTossChoice = in.nextInt();
 			game.toss(playerTossChoice);
 			
-			while(!game.winFlag) {
+			while(game.posLeft > 0 && !game.winFlag) {
 				if(game.currentPlayer == game.COMPUTER) {
 					game.computerPlay();
 				}
@@ -40,8 +40,11 @@ public class TicTacToeMain {
 			if(game.winPlayer == game.PLAYER) {
 				out.println("Player wins the game");
 			}
-			else {
+			else if(game.winPlayer == game.COMPUTER){
 				out.println("Computer wins the game");
+			}
+			else{
+				out.println("Game is a tie");
 			}
 			
 			out.println("Do you want to play again??Y/N");

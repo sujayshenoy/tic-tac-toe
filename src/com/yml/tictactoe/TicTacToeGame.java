@@ -29,7 +29,7 @@ public class TicTacToeGame {
 	public void choice() {
 		Scanner in = new Scanner(System.in);
 
-		System.out.println("Choose the letter(X/O) ");
+		print("Choose the letter(X/O) ");
 		char choice = Character.toUpperCase(in.next().charAt(0));
 		
 		if(choice == 'X') {
@@ -43,11 +43,11 @@ public class TicTacToeGame {
 	}
 
 	public void showBoard() {
-		System.out.println(board[1]+" | "+board[2]+" | "+board[3]);
-		System.out.println("----------");
-		System.out.println(board[4]+" | "+board[5]+" | "+board[6]);
-		System.out.println("----------");
-		System.out.println(board[7]+" | "+board[8]+" | "+board[9]);
+		print(board[1]+" | "+board[2]+" | "+board[3]);
+		print("----------");
+		print(board[4]+" | "+board[5]+" | "+board[6]);
+		print("----------");
+		print(board[7]+" | "+board[8]+" | "+board[9]);
 	}
 	
 	public boolean playerPlay(int playerPos) {
@@ -98,6 +98,45 @@ public class TicTacToeGame {
 	
 	private int generateChoice() {
 		Random rand = new Random();
+
+		//check if computer can win
+		if((board[1]==' ')&&((board[2]==board[3]&&board[2]==cChoice)||(board[4]==board[7]&&board[4]==cChoice)||(board[5]==board[9]&&board[5]==cChoice)))
+			{
+				return 1;			
+			}
+			else if((board[2]==' ')&&((board[1]==board[3]&&board[3]==cChoice)||(board[5]==board[8]&&board[8]==cChoice)))
+			{
+				return 2;
+			}
+			else if((board[3]==' ')&&((board[1]==board[2]&&board[2]==cChoice)||(board[6]==board[9]&&board[9]==cChoice)||(board[5]==board[7]&&board[7]==cChoice)))
+			{
+				return 3;
+			}
+			else if((board[4]==' ')&&((board[1]==board[7]&&board[1]==cChoice)||(board[5]==board[6]&&board[6]==cChoice)))
+			{
+				return 4;
+			}
+			else if((board[5]==' ')&&((board[1]==board[9]&&board[2]==cChoice)||(board[7]==board[3]&&board[7]==cChoice)||(board[2]==board[8]&&board[8]==cChoice)||(board[4]==board[6]&&board[6]==cChoice)))
+			{
+				return 5;
+			}
+			else if((board[6]==' ')&&((board[9]==board[3]&&board[3]==cChoice)||(board[5]==board[4]&&board[4]==cChoice)))
+			{
+				return 6;
+			}
+			else if((board[7]==' ')&&((board[1]==board[4]&&board[4]==cChoice)||(board[3]==board[5]&&board[3]==cChoice)||(board[8]==board[9]&&board[8]==cChoice)))
+			{
+				return 7;
+			}
+			else if((board[8]==' ')&&((board[9]==board[7]&&board[7]==cChoice)||(board[2]==board[5]&&board[2]==cChoice)))
+			{
+				return 8;
+			}
+			else if((board[9]==' ')&&((board[1]==board[5]&&board[5]==cChoice)||(board[6]==board[3]&&board[3]==cChoice)||(board[8]==board[7]&&board[7]==cChoice)))
+			{
+				return 9;
+			}
+		
 		return rand.nextInt(9)+1;
 	}
 	
