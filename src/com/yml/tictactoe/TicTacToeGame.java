@@ -97,8 +97,6 @@ public class TicTacToeGame {
 	}
 	
 	private int generateChoice() {
-		Random rand = new Random();
-
 		//check if computer can win
 		if((board[1]==' ')&&((board[2]==board[3]&&board[2]==cChoice)||(board[4]==board[7]&&board[4]==cChoice)||(board[5]==board[9]&&board[5]==cChoice)))
 			{
@@ -190,9 +188,11 @@ public class TicTacToeGame {
 				else if(board[9] == ' '){
 					return 9;
 				}
+				else {
+					return 5;
+				}
 			}
-			
-		return 0;
+
 	}
 	
 	public void toss(int playerTossChoice) {
