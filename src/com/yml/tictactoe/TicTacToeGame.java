@@ -175,8 +175,24 @@ public class TicTacToeGame {
 			{	
 				return 9;
 			}
-		
-		return rand.nextInt(9)+1;
+
+			else{
+				//choose from cornor
+				if(board[1] == ' '){
+					return 1;
+				}
+				else if(board[3] == ' '){
+					return 3;
+				} 
+				else if(board[7] == ' '){
+					return 7;
+				}
+				else if(board[9] == ' '){
+					return 9;
+				}
+			}
+			
+		return 0;
 	}
 	
 	public void toss(int playerTossChoice) {
