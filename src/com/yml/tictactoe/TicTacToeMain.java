@@ -11,7 +11,7 @@ public class TicTacToeMain {
 		
 		out.println("Welcome to Tic Tac Toe Game");
 		
-		while( true ) {
+		while(true) {
 			TicTacToeGame game = new TicTacToeGame();
 			game.createBoard();
 			game.choice();
@@ -21,7 +21,7 @@ public class TicTacToeMain {
 			int playerTossChoice = in.nextInt();
 			game.toss(playerTossChoice);
 			
-			while(game.posLeft > 0 && !game.winFlag) {
+			while( game.posLeft > 0 && !game.winFlag ) {
 				if(game.currentPlayer == game.COMPUTER) {
 					game.computerPlay();
 				}
